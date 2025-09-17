@@ -7,5 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  base: "/AppiAir",
+  site: "https://mateo.mougenot.github.io",
 });
