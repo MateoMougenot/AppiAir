@@ -2,7 +2,7 @@
 import BasicLayout from "../layout/BasicLayout.astro";
 import Card from "../components/Card.astro";
 
-const responseData = await fetch("https://randomuser.me/api/?results=5");
+const responseData = await fetch("https://randomuser.me/api/?results=10");
 const users = await responseData.json();
 
 console.log(users);
@@ -11,20 +11,24 @@ console.log(users);
 <BasicLayout title="Home">
 	<h1 class="text-3xl bg-red-500">Welcome to astro</h1>
 	<p>This is the home page test</p>
-	<ul>
-		{
-			users.results.map((user) => (
-				<li>
-					<Card
-					first={user.name.first}
-					last={user.name.last}
-					gender={user.gender}
-					email={user.email}
-					phone={user.phone}
-					picture={user.picture.large}
-					/>
-				</li>
-			))
-		}
-	</ul>
+	<img class="flex justify-center items-center w-50" src="../../screen/adobe-logo.svg" alt="">
+	<div class="overflow-hidden relative">
+		<ul class="flex gap-6 animate-scroll">
+				{
+					users.results.map((user) => (
+						<li class="shrink-0">
+							<Card
+							first={user.name.first}
+							last={user.name.last}
+							gender={user.gender}
+							email={user.email}
+							phone={user.phone}
+							picture={user.picture.large}
+							/>
+						</li>
+					))
+				}
+			</ul>
+	</div>
+	
 </BasicLayout>
