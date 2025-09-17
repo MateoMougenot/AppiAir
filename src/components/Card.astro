@@ -1,0 +1,11 @@
+---
+const{first, last, gender, email, phone, picture} = Astro.props
+---
+
+<article>
+    <h2>{first} {last}</h2>
+    <p>{gender}</p>
+    <p>{email}</p>
+    <p>{phone}</p>
+    <img src={picture} alt="">
+</article>
